@@ -37,7 +37,7 @@ clean:
 	rm -f krnl.iso
 	rm -f entry.o
 
-krnl.iso:
+krnl:
 	rm -rf iso_root
 	mkdir -p iso_root
 	cp kernel.elf \
@@ -50,5 +50,6 @@ krnl.iso:
 	limine/limine-deploy krnl.iso
 	rm -rf iso_root
 
-run: krnl.iso
+run:
+	make krnl
 	qemu-system-i386 -m 128M -serial stdio -cdrom ./krnl.iso
