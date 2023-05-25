@@ -29,6 +29,7 @@ LD_FLAGS := \
 
 kernel.elf: $(OBJS)
 	nasm -f elf32 kernel/src/entry.asm -o entry.o
+	nasm -f elf32 kernel/src/lunarForge/lunar.asm -o lunar.o
 	$(LD) $(LD_FLAGS) $(OBJS) entry.o -o $@
 
 clean:
